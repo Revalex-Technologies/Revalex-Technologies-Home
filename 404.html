@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revalex Technologies</title>
+    <meta name="description" content="Revalex Technologies — building hardware and tech with polish." />
+    <link rel="icon" href="assets/logo.svg" />
+    <script>
+      // Redirect direct deep links to hash-based routes for static hosting
+      (function() {
+        if (!location.hash && location.pathname !== '/' && !location.pathname.endsWith('.html')) {
+          var newUrl = location.origin + '/' + '#' + location.pathname + location.search + location.hash;
+          location.replace(newUrl);
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-white text-gray-800">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

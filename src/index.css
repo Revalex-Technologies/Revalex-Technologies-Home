@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --brand-red: #e50914; }
+
+.btn { @apply inline-flex items-center justify-center rounded-xl px-4 py-2 font-medium transition hover:opacity-90; }
+.btn-primary { @apply bg-[var(--brand-red)] text-white shadow; }
+.btn-ghost { @apply text-[var(--brand-red)] hover:bg-gray-100; }
+.card { @apply rounded-2xl border border-gray-200 bg-white p-6 shadow-sm; }
+.nav-link { @apply text-gray-700 hover:text-[var(--brand-red)] transition; }
+.hero { background: linear-gradient(180deg, #f8fafc, #ffffff); }
+
+.btn:focus-visible{outline:2px solid var(--brand-red); outline-offset:2px}
+.text-brand-dark{color:#0f172a}
