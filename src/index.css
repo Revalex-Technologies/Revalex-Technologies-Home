@@ -13,3 +13,31 @@
 
 .btn:focus-visible{outline:2px solid var(--brand-red); outline-offset:2px}
 .text-brand-dark{color:#0f172a}
+
+html, body { overflow-x: hidden; }
+
+img, video, canvas, svg { max-width: 100%; height: auto; }
+iframe { max-width: 100%; }
+
+* { word-break: break-word; }
+.prose, p { overflow-wrap: anywhere; }
+
+header nav { display: flex; flex-wrap: wrap; }
+@media (max-width: 640px) {
+  header nav a,
+  header nav button { padding-left: .5rem; padding-right: .5rem; }
+}
+
+@media (max-width: 380px) {
+  .card { padding: 1rem; border-radius: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .grid-override-1col { display: grid; grid-template-columns: 1fr !important; gap: 1rem; }
+}
+
+@media (max-width: 360px) {
+  h1 { font-size: clamp(1.5rem, 6vw, 2rem); }
+  h2 { font-size: clamp(1.25rem, 5.5vw, 1.5rem); }
+  .btn { padding: .5rem .75rem; }
+}
