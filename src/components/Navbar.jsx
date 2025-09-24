@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 6)
     onScroll()
@@ -10,41 +12,77 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setOpen(false)
+    }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  const navLinkClass = ({ isActive }) =>
+    `nav-link block px-3 py-2 rounded-lg ${isActive ? 'text-[var(--brand-red)]' : ''}`
+
   return (
     <header className={`sticky top-0 z-50 border-b bg-white/90 backdrop-blur transition-shadow ${scrolled ? 'shadow-sm' : ''}`}>
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link to="/" className="flex items-center gap-3">
-          <img src="assets/logo.svg" alt="Revalex logo" className="h-8 w-8" />
-          <span className="text-lg font-semibold tracking-tight">Revalex Technologies</span>
-        </Link>
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="flex h-16 items-center justify-between">
+          <Link to="/" className="flex items-center gap-3">
+            <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--brand-red)] text-white font-bold shadow">R</div>
+            <span className="brand-text hidden md:inline text-lg font-semibold tracking-tight">Revalex Technologies</span>
+          </Link>
+          <nav className="hidden md:flex items-center gap-1">
+            <NavLink to="/" className={navLinkClass} end>Home</NavLink>
+            <NavLink to="/projects" className={navLinkClass}>Projects</NavLink>
+            <NavLink to="/labs" className={navLinkClass}>Labs</NavLink>
 
-        <nav className="flex items-center gap-2">
-          <NavLink to="/" className="nav-link px-3 py-2 rounded-lg hover:bg-gray-100">Home</NavLink>
-          <NavLink to="/projects" className="nav-link px-3 py-2 rounded-lg hover:bg-gray-100">Projects</NavLink>
-          <NavLink to="/labs" className="nav-link px-3 py-2 rounded-lg hover:bg-gray-100">Labs</NavLink>
+            <div className="ml-3 h-6 w-px bg-gray-200" />
 
-          <span className="mx-2 h-5 w-px bg-gray-200" aria-hidden="true" />
+            <Link to="/projects" className="btn btn-primary ml-3">Explore</Link>
+            <a
+              href="https://github.com/Revalex-Technologies"
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-ghost border border-gray-200"
+            >
+              GitHub
+            </a>
+          </nav>
 
-          <NavLink
-            to="/projects"
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-red)] px-4 py-2 text-white shadow hover:opacity-95 transition"
+          <button
+            type="button"
+            aria-label="Open menu"
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
+            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200"
           >
-            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-white/90"></span>
-            Explore
-          </NavLink>
-
-          <a
-            href="https://github.com/Revalex-Technologies"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-4 py-2 text-gray-800 hover:border-gray-400 hover:bg-gray-50 transition"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="-ml-1">
-              <path d="M12 .5A12 12 0 0 0 0 12.7c0 5.4 3.4 10 8.2 11.6.6.1.8-.2.8-.5v-2c-3.3.8-4-1.6-4-1.6-.6-1.5-1.4-1.9-1.4-1.9-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.6-1.4-5.6-6.3 0-1.4.5-2.5 1.2-3.4 0-.3-.5-1.6.1-3.3 0 0 1-.3 3.5 1.3a11.6 11.6 0 0 1 6.4 0c2.5-1.6 3.5-1.3 3.5-1.3.6 1.7.1 3 .1 3.3.8.9 1.2 2 1.2 3.4 0 4.9-2.9 6-5.6 6.3.4.3.8 1 .8 2v3c0 .3.2.6.8.5A12.2 12.2 0 0 0 24 12.7 12 12 0 0 0 12 .5z"/>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
             </svg>
-            GitHub
-          </a>
-        </nav>
+          </button>
+        </div>
+        <div
+          className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+        >
+          <div className="pb-4 pt-1">
+            <nav className="grid gap-1">
+              <NavLink onClick={() => setOpen(false)} to="/" className={navLinkClass} end>Home</NavLink>
+              <NavLink onClick={() => setOpen(false)} to="/projects" className={navLinkClass}>Projects</NavLink>
+              <NavLink onClick={() => setOpen(false)} to="/labs" className={navLinkClass}>Labs</NavLink>
+            </nav>
+            <div className="mt-3 grid gap-2">
+              <Link onClick={() => setOpen(false)} to="/projects" className="btn btn-primary w-full">Explore</Link>
+              <a
+                href="https://github.com/Revalex-Technologies"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-ghost border border-gray-200 w-full"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   )

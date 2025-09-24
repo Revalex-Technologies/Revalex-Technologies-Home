@@ -41,3 +41,13 @@ header nav { display: flex; flex-wrap: wrap; }
   h2 { font-size: clamp(1.25rem, 5.5vw, 1.5rem); }
   .btn { padding: .5rem .75rem; }
 }
+
+html, body { max-width: 100%; overflow-x: hidden; }
+img, video, svg, canvas { max-width: 100%; height: auto; }
+* { min-width: 0; } /* prevent flex children from overflowing */
+.break-words { overflow-wrap: anywhere; word-break: break-word; }
+
+@media (max-width: 380px) {
+  .btn { padding-left: 0.875rem; padding-right: 0.875rem; }
+  .card { padding: 1rem; }
+}
