@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
+import logo from '../assets/logo.svg'
 import { useState, useEffect } from 'react'
 
 export default function Navbar() {
@@ -29,7 +30,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           
           <Link to="/" className="flex items-center gap-3">
-            <img src="/assets/logo.svg" alt="Revalex Technologies" className="h-9 w-9 rounded-full shadow" />
+            <img src={logo} alt="Revalex Technologies" className="h-9 w-9 shadow" />
             <span className="brand-text hidden md:inline text-lg font-semibold tracking-tight">Revalex Technologies</span>
           </Link>
 
