@@ -44,7 +44,7 @@ header nav { display: flex; flex-wrap: wrap; }
 
 html, body { max-width: 100%; overflow-x: hidden; }
 img, video, svg, canvas { max-width: 100%; height: auto; }
-* { min-width: 0; }
+* { min-width: 0; } 
 .break-words { overflow-wrap: anywhere; word-break: break-word; }
 
 @media (max-width: 380px) {

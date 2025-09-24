@@ -28,9 +28,8 @@ export default function Navbar() {
     <header className={`sticky top-0 z-50 border-b bg-white/90 backdrop-blur transition-shadow ${scrolled ? 'shadow-sm' : ''}`}>
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between">
-          
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Revalex Technologies" className="h-9 w-9 shadow" />
+            <img src={logo} alt="Revalex Technologies" className="h-9 w-9" />
             <span className="brand-text hidden md:inline text-lg font-semibold tracking-tight">Revalex Technologies</span>
           </Link>
 
@@ -46,7 +45,7 @@ export default function Navbar() {
               href="https://github.com/Revalex-Technologies"
               target="_blank"
               rel="noreferrer"
-              className="btn btn-ghost border border-gray-200"
+              className="btn btn-ghost border-gray-200"
             >
               GitHub
             </a>
@@ -56,7 +55,7 @@ export default function Navbar() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200"
+            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border-gray-200"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
               <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -78,7 +77,7 @@ export default function Navbar() {
                 href="https://github.com/Revalex-Technologies"
                 target="_blank"
                 rel="noreferrer"
-                className="btn btn-ghost border border-gray-200 w-full"
+                className="btn btn-ghost border-gray-200 w-full"
               >
                 GitHub
               </a>
