@@ -27,10 +27,12 @@ export default function Navbar() {
     <header className={`sticky top-0 z-50 border-b bg-white/90 backdrop-blur transition-shadow ${scrolled ? 'shadow-sm' : ''}`}>
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between">
+          
           <Link to="/" className="flex items-center gap-3">
-            <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--brand-red)] text-white font-bold shadow">R</div>
+            <img src="/assets/logo.svg" alt="Revalex Technologies" className="h-9 w-9 rounded-full shadow" />
             <span className="brand-text hidden md:inline text-lg font-semibold tracking-tight">Revalex Technologies</span>
           </Link>
+
           <nav className="hidden md:flex items-center gap-1">
             <NavLink to="/" className={navLinkClass} end>Home</NavLink>
             <NavLink to="/projects" className={navLinkClass}>Projects</NavLink>
@@ -48,10 +50,9 @@ export default function Navbar() {
               GitHub
             </a>
           </nav>
-
           <button
             type="button"
-            aria-label="Open menu"
+            aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
             className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200"
