@@ -9,7 +9,7 @@ export default function RepoCard({ repo }) {
           {repo.description && <p className="mt-1 text-sm text-gray-600">{repo.description}</p>}
         </div>
         <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.2 3.7 1.6-6.9L2 9.5l7-.6L12 2l3 6.9 7 .6-5.4 4.6 1.6 6.9z"/></svg>
+          <svg className="shrink-0 w-3 h-3" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.2 3.7 1.6-6.9L2 9.5l7-.6L12 2l3 6.9 7 .6-5.4 4.6 1.6 6.9z"/></svg>
           {repo.stargazers_count ?? 0}
         </span>
       </div>
