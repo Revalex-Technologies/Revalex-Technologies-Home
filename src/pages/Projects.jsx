@@ -16,7 +16,7 @@ export default function Projects() {
         if (!res.ok) throw new Error('GitHub API error ' + res.status)
         const data = await res.json()
         data.sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at))
-        setRepos(data)
+        setRepos(data.filter(r => r.name !== 'Selenix-Browser'))
       } catch (e) {
         setError(e.message || 'Failed to load repositories')
       } finally {
@@ -32,7 +32,7 @@ export default function Projects() {
       <main className="mx-auto max-w-6xl px-4 py-12">
         <div className="mb-8 flex items-end justify-between">
           <div>
-            <h1 className="text-3xl font-bold">Projects</h1>
+            <h1 className="text-3xl font-bold">Other Projects</h1>
             <p className="mt-2 text-gray-600">Public repositories from our GitHub organization.</p>
           </div>
           <a className="btn btn-primary" href="https://github.com/orgs/Revalex-Technologies/repositories" target="_blank" rel="noreferrer">All Repositories</a>

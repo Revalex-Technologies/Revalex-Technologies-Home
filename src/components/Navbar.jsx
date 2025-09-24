@@ -31,14 +31,15 @@ export default function Navbar() {
 
           <Link to="/" className="flex items-center gap-3">
             <img src={logo} alt="Revalex Technologies" className="h-9 w-9" />
-            
+
             <span className="brand-text hidden md:inline text-lg font-semibold tracking-tight">Revalex Technologies</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
             <NavLink to="/" className={navLinkClass} end>Home</NavLink>
-            <NavLink to="/projects" className={navLinkClass}>Projects</NavLink>
+            <NavLink to="/projects" className={navLinkClass}>Other Projects</NavLink>
             <NavLink to="/labs" className={navLinkClass}>Labs</NavLink>
+              <NavLink onClick={() => setOpen(false)} to="/projects/selenix" className={navLinkClass}>Selenix Browser</NavLink>
 
             <div className="ml-3 h-6 w-px bg-gray-200" />
 
@@ -70,8 +71,9 @@ export default function Navbar() {
           <div className="pb-4 pt-1">
             <nav className="grid gap-1">
               <NavLink onClick={() => setOpen(false)} to="/" className={navLinkClass} end>Home</NavLink>
-              <NavLink onClick={() => setOpen(false)} to="/projects" className={navLinkClass}>Projects</NavLink>
+              <NavLink onClick={() => setOpen(false)} to="/projects" className={navLinkClass}>Other Projects</NavLink>
               <NavLink onClick={() => setOpen(false)} to="/labs" className={navLinkClass}>Labs</NavLink>
+              <NavLink onClick={() => setOpen(false)} to="/projects/selenix" className={navLinkClass}>Selenix Browser</NavLink>
             </nav>
             <div className="mt-3 grid gap-2">
               <Link onClick={() => setOpen(false)} to="/projects" className="btn btn-primary w-full">Explore</Link>

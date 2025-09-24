@@ -7,7 +7,7 @@ export default function Home() {
     <div>
       <Navbar />
 
-      {/* HERO */}
+      {}
       <section className="hero border-b">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 py-16 md:grid-cols-2">
           <div>
@@ -30,7 +30,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VALUE SECTIONS */}
+      {}
       <section className="mx-auto max-w-6xl px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           {title: 'Solid foundations', body: 'We build on reliable, well-tested stacks to minimize surprises and maximize velocity.'},
@@ -44,7 +44,7 @@ export default function Home() {
         ))}
       </section>
 
-      {/* CTA */}
+      {}
       <section className="mx-auto max-w-6xl px-4 pb-14">
         <div className="card flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
           <div>

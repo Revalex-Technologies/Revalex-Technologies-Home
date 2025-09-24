@@ -36,21 +36,18 @@ function SnakeGame() {
       if (t - last < speed) return
       last = t
 
-      // move
       const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y }
-      // wrap
+
       const cols = canvas.width/size, rows = canvas.height/size
       head.x = (head.x + cols) % cols
       head.y = (head.y + rows) % rows
 
-      // collision with self
       if (snake.some(p => p.x === head.x && p.y === head.y)) {
         alive = false
       }
 
       snake.unshift(head)
 
-      // eat
       if (head.x === food.x && head.y === food.y) {
         setScore(s => s + 1)
         speed = Math.max(60, speed - 2)
@@ -59,15 +56,14 @@ function SnakeGame() {
         snake.pop()
       }
 
-      // draw
       ctx.clearRect(0,0,canvas.width, canvas.height)
-      // grid bg
+
       ctx.fillStyle = '#f8fafc'
       ctx.fillRect(0,0,canvas.width, canvas.height)
-      // food
+
       ctx.fillStyle = '#e50914'
       ctx.fillRect(food.x*size, food.y*size, size, size)
-      // snake
+
       ctx.fillStyle = '#111827'
       snake.forEach(p => ctx.fillRect(p.x*size, p.y*size, size, size))
 
