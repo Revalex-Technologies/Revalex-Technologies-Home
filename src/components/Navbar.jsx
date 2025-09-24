@@ -28,8 +28,10 @@ export default function Navbar() {
     <header className={`sticky top-0 z-50 border-b bg-white/90 backdrop-blur transition-shadow ${scrolled ? 'shadow-sm' : ''}`}>
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between">
+
           <Link to="/" className="flex items-center gap-3">
             <img src={logo} alt="Revalex Technologies" className="h-9 w-9" />
+            
             <span className="brand-text hidden md:inline text-lg font-semibold tracking-tight">Revalex Technologies</span>
           </Link>
 
