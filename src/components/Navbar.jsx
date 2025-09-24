@@ -43,7 +43,6 @@ export default function Navbar() {
 
             <div className="ml-3 h-6 w-px bg-gray-200" />
 
-            <Link to="/projects" className="btn btn-primary ml-3">Explore</Link>
             <a
               href="https://github.com/Revalex-Technologies"
               target="_blank"
@@ -76,7 +75,6 @@ export default function Navbar() {
               <NavLink onClick={() => setOpen(false)} to="/projects/selenix" className={navLinkClass}>Selenix Browser</NavLink>
             </nav>
             <div className="mt-3 grid gap-2">
-              <Link onClick={() => setOpen(false)} to="/projects" className="btn btn-primary w-full">Explore</Link>
               <a
                 href="https://github.com/Revalex-Technologies"
                 target="_blank"
