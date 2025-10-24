@@ -4,13 +4,13 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 const ORG = 'Revalex-Technologies'
-const REPO = 'Selenix-Browser'
+const REPO = 'Syra-Browser'
 
 function humanPath(arr) {
   return arr.filter(Boolean).join('/')
 }
 
-export default function SelenixBlob() {
+export default function SyraBlob() {
   const { branch = 'main', '*': rest } = useParams()
   const navigate = useNavigate()
   const parts = (rest || '').split('/').filter(Boolean)
@@ -46,12 +46,12 @@ export default function SelenixBlob() {
       <main className="gh-container blob-wrap">
         <div className="mb-3 flex items-center justify-between">
           <div className="gh-breadcrumbs">
-            <Link to="/projects/selenix" className="link">/{REPO}</Link>
+            <Link to="/projects/syra" className="link">/{REPO}</Link>
             {parts.map((p, i) => (
               <span key={i}>
                 <span className="sep">/</span>
                 {i < parts.length - 1 ? (
-                  <a className="link cursor-pointer" onClick={() => navigate(`/projects/selenix/blob/${branch}/${encodeURIComponent(parts.slice(0,i+1).join('/'))}`)}>{p}</a>
+                  <a className="link cursor-pointer" onClick={() => navigate(`/projects/syra/blob/${branch}/${encodeURIComponent(parts.slice(0,i+1).join('/'))}`)}>{p}</a>
                 ) : <span>{p}</span>}
               </span>
             ))}

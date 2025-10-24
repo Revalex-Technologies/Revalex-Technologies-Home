@@ -4,8 +4,8 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 function rewriteRelativeLinks(md, branch, basePath){
-  const toBlob = (p) => `#/projects/selenix/blob/${branch}/${encodeURIComponent(p)}`
-  const toTree = (p) => `#/projects/selenix/tree/${branch}/${encodeURIComponent(p)}`
+  const toBlob = (p) => `#/projects/syra/blob/${branch}/${encodeURIComponent(p)}`
+  const toTree = (p) => `#/projects/syra/tree/${branch}/${encodeURIComponent(p)}`
   const resolve = (href) => {
     let clean = (href || '').trim()
     if (!clean || clean.startsWith('#') || /^(?:https?:|data:)/i.test(clean)) return href
@@ -47,7 +47,7 @@ function ensureMarked() {
 }
 
 const ORG = 'Revalex-Technologies'
-const REPO = 'Selenix-Browser'
+const REPO = 'Syra-Browser'
 
 function humanSize(bytes) {
   if (bytes === 0 || bytes === null || bytes === undefined) return '-'
@@ -111,7 +111,7 @@ export default function ReleaseDetail() {
       <main className="gh-container">
         <div className="mb-3 flex items-center justify-between">
           <h1 className="text-2xl font-semibold">Release {tag}</h1>
-          <Link className="btn btn-ghost" to="/projects/selenix/releases">Back to releases</Link>
+          <Link className="btn btn-ghost" to="/projects/syra/releases">Back to releases</Link>
         </div>
         {loading && <p>Loading…</p>}
         {error && <p className="text-red-600">Error: {error}</p>}

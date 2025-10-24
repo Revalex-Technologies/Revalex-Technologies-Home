@@ -16,7 +16,7 @@ export default function Projects() {
         if (!res.ok) throw new Error('GitHub API error ' + res.status)
         const data = await res.json()
         data.sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at))
-        setRepos(data.filter(r => r.name !== 'Selenix-Browser'))
+        setRepos(data.filter(r => r.name !== 'Syra-Browser'))
       } catch (e) {
         setError(e.message || 'Failed to load repositories')
       } finally {

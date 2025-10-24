@@ -36,7 +36,7 @@ function ensureMarked() {
 }
 
 const ORG = 'Revalex-Technologies'
-const REPO = 'Selenix-Browser'
+const REPO = 'Syra-Browser'
 
 function humanSize(bytes) {
   if (!bytes) return '-'
@@ -59,8 +59,8 @@ function rewriteRelativeImages(md, baseRaw) {
 }
 
 function rewriteRelativeLinks(md, branch, basePath) {
-  const toBlob = (p) => `#/projects/selenix/blob/${branch}/${encodeURI(p)}`
-  const toTree = (p) => `#/projects/selenix/tree/${branch}/${encodeURI(p)}`
+  const toBlob = (p) => `#/projects/syra/blob/${branch}/${encodeURI(p)}`
+  const toTree = (p) => `#/projects/syra/tree/${branch}/${encodeURI(p)}`
   const resolve = (href) => {
     let clean = (href || '').trim()
     if (!clean || clean.startsWith('#') || /^(?:https?:|data:)/i.test(clean)) return href
@@ -165,7 +165,7 @@ function RepoBrowser({ branch }) {
                   <td>
                     {it.type === 'dir'
                       ? <a className="gh-file cursor-pointer" onClick={() => setPath(path ? `${path}/${it.name}` : it.name)}>{it.name}</a>
-                      : <a className="gh-file cursor-pointer" onClick={() => navigate(`/projects/selenix/blob/${branch}/${encodeURIComponent(path ? path + '/' + it.name : it.name)}`)}>{it.name}</a>
+                      : <a className="gh-file cursor-pointer" onClick={() => navigate(`/projects/syra/blob/${branch}/${encodeURIComponent(path ? path + '/' + it.name : it.name)}`)}>{it.name}</a>
                     }
                   </td>
                   <td className="type" style={{textAlign:'right'}}>{it.type === 'dir' ? 'folder' : humanSize(it.size || 0)}</td>
@@ -186,7 +186,7 @@ function RepoBrowser({ branch }) {
   )
 }
 
-export default function Selenix() {
+export default function Syra() {
   const [repo, setRepo] = useState(null)
   const [branch, setBranch] = useState(null)
 
@@ -219,7 +219,7 @@ export default function Selenix() {
           <a href={`https://github.com/${ORG}/${REPO}`} target="_blank" rel="noreferrer" className="btn btn-ghost inline-flex items-center gap-2"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M8 .2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.24.49-2.71-1.08-2.71-1.08-.36-.92-.88-1.17-.88-1.17-.72-.49.06-.48.06-.48.8.06 1.23.83 1.23.83.71 1.21 1.86.86 2.31.66.07-.52.28-.86.51-1.06-1.79-.2-3.67-.9-3.67-3.99 0-.88.31-1.6.82-2.17-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.83a7.6 7.6 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.05 2.2-.83 2.2-.83.44 1.1.16 1.92.08 2.12.51.57.82 1.29.82 2.17 0 3.1-1.88 3.78-3.68 3.98.29.25.54.74.54 1.49v2.21c0 .21.14.46.55.38A8 8 0 0 0 8 .2"/></svg>View Repo on GitHub</a>
         <div className="gh-tabs">
           <button className="gh-tab active">Code</button>
-          <Link className="gh-tab" to="/projects/selenix/releases">Releases</Link>
+          <Link className="gh-tab" to="/projects/syra/releases">Releases</Link>
         </div>
 
         <div className="gh-grid mt-0">

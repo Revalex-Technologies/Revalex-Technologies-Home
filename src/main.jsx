@@ -4,21 +4,22 @@ import { createHashRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
-import Selenix from './pages/Selenix'
-import SelenixTree from './pages/SelenixTree'
-import SelenixBlob from './pages/SelenixBlob'
-import SelenixReleases from './pages/SelenixReleases'
-import SelenixRelease from './pages/SelenixRelease'
+import Syra from './pages/Syra'
+import SyraTree from './pages/SyraTree'
+import SyraBlob from './pages/SyraBlob'
+import SyraReleases from './pages/SyraReleases'
+import SyraRelease from './pages/SyraRelease'
 import Labs from './pages/Labs'
 
 const router = createHashRouter([
   { path: '/', element: <Home /> },
   { path: '/projects', element: <Projects /> },
-  { path: '/projects/selenix', element: <Selenix /> },
-  { path: '/projects/selenix/tree/:branch/*', element: <SelenixTree /> },
-  { path: '/projects/selenix/blob/:branch/*', element: <SelenixBlob /> },
-  { path: '/projects/selenix/releases', element: <SelenixReleases /> },
-  { path: '/projects/selenix/releases/:tag', element: <SelenixRelease /> },
+  { path: '/projects/syra', element: <Syra /> },
+  { path: '/projects/syra', element: <Syra /> },
+  { path: '/projects/syra/tree/:branch/*', element: <SyraTree /> },
+  { path: '/projects/syra/blob/:branch/*', element: <SyraBlob /> },
+  { path: '/projects/syra/releases', element: <SyraReleases /> },
+  { path: '/projects/syra/releases/:tag', element: <SyraRelease /> },
   { path: '/labs', element: <Labs /> },
 ])
 

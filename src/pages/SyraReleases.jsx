@@ -4,13 +4,13 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 const ORG = 'Revalex-Technologies'
-const REPO = 'Selenix-Browser'
+const REPO = 'Syra-Browser'
 
 function humanDate(s) {
   return new Date(s).toLocaleString()
 }
 
-export default function SelenixReleases() {
+export default function SyraReleases() {
   const [releases, setReleases] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -38,7 +38,7 @@ export default function SelenixReleases() {
       <Navbar />
       <main className="gh-container">
         <div className="mb-3">
-          <h1 className="text-2xl font-semibold">Selenix Browser — Releases</h1>
+          <h1 className="text-2xl font-semibold">Syra Browser — Releases</h1>
         </div>
         {loading && <p>Loading…</p>}
         {error && <p className="text-red-600">Error: {error}</p>}
@@ -50,7 +50,7 @@ export default function SelenixReleases() {
                   <div className="text-lg font-semibold">{r.name || r.tag_name}</div>
                   <div className="gh-sub">Published {humanDate(r.published_at || r.created_at)}</div>
                 </div>
-                <Link className="btn btn-primary" to={`/projects/selenix/releases/${encodeURIComponent(r.tag_name)}`}>Open</Link>
+                <Link className="btn btn-primary" to={`/projects/syra/releases/${encodeURIComponent(r.tag_name)}`}>Open</Link>
               </div>
             </div>
           ))}

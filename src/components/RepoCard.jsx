@@ -20,8 +20,8 @@ export default function RepoCard({ repo }) {
       </div>
       <div className="mt-5 flex gap-3">
         <a className="btn btn-primary" href={repo.html_url} target="_blank" rel="noreferrer">Visit Project</a>
-        {repo.name.toLowerCase().includes('selenix') && (
-          <Link className="btn btn-ghost" to="/projects/selenix">Learn more</Link>
+        {(repo.name.toLowerCase().includes('syra') || repo.name.toLowerCase().includes('syra')) && (
+          <Link className="btn btn-ghost" to="/projects/syra">Learn more</Link>
         )}
       </div>
     </div>
